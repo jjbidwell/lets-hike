@@ -1,4 +1,5 @@
-let hikeBaseURL = "http://api.openweathermap.org/data/2.5/forecast?" + hikeApiKey;
+let hikeBaseURL = "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
+//lat=40.0274&lon=-105.2519&maxDistance=10&key=
 
 var queryTerm = "";
 
@@ -13,6 +14,24 @@ function hikeQuery(hikeBaseURL) {
         console.log("hikeData:", hikeData);
         console.log("QueryURL:", hikeBaseURL);
         console.log("===========================");
+
+        console.log("trail", hikeData.trails.name);
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+        console.log("trail", hikeData.trails.name)
+
+
+        //URL base One Call
+        let oneCallBaseURL = "" + latitude + longitude + distance + apiKey;
+        // needs "imperial units"
+        console.log(oneCallBaseURL);
+
+    });
+
 }
 
 
