@@ -1,29 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-euiv="X-UA-Compatible" content="ie-edge" />
-        <title>Weather App</title>
-        <link rel="stylesheet" href="./main.css" />
-    </head>
-    <body>
-        <div class="app-wrap">
-            <header>
-                <input type="text" autocomplete="off" class="search-box" placeholder="Search For A City..."/>
-            </header>
-            <main>
-                <section class="location">
-                    <div class="city">Encinitas, CA, USA</div>
-                    <div class="date">Thursday 22 October 2020</div>
-                </section>
-                <div class="current">
-                    <div class="temp">70<span>°F</span></div>
-                    <div class="weather">Sunny</div>
-                    <div class="hi-low">60°F / 82°F</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar mb-0 h1">Weather Dashboard</span>
+</nav>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Search for a City -->
+
+            <div class="card bg-light" style="width: 22rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Search for a City:</h5>
+                    <input type="text" class="form-control" aria-label="Text input" id="search">
+                    <button type="submit" class="btn btn-outline-secondary" id="searchBtn">Search</button>
+                    <br>
+                    <!-- Recently searched cities -->
+                    <br>Recently Searched:
+                    <!-- Prepend with JavaScript -->
+                    <hr>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Most Recently Searched</li>
+                    </ul>
                 </div>
-            </main>
+            </div>
+
+            <!-- Search Results Display -->
+            <div class="card col-md">
+                <div class="card-body" style="width: 45rem;">
+                    <div id="dayPreview">
+                        <!-- <h2 id="cityName date weatherIcon">{City Name} {Date} {Weather Emoji}</h2>
+                        <p id="temp">Temperature:</p>
+                        <p id="humidity">Humidity:</p>
+                        <p id="windSpeed">Wind Speed:</p>
+                        <p id="uvIndex">UV Index:</p> -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="js/weather.js"></script>
-    </body>
+        <div>
+
+            <!-- 5-Day Forecast -->
+            <h5>5-Day Forecast:</h5>
+            <!-- JavaScript: append 4 more to first day of the seach -->
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">
+                    <strong>Date:</strong>
+                    <p>weather icon</p>
+                    <p>Temp:</p>
+                    <p>Humidity:</p>
+                </li>
+                <li class="list-group-item">
+                    <strong>Date:</strong>
+                    <p>weather icon</p>
+                    <p>Temp:</p>
+                    <p>Humidity:</p>
+                </li>
+                <li class="list-group-item">
+                    <strong>Date:</strong>
+                    <p>weather icon</p>
+                    <p>Temp:</p>
+                    <p>Humidity:</p>
+                </li>
+                <li class="list-group-item">
+                    <strong>Date:</strong>
+                    <p>weather icon</p>
+                    <p>Temp:</p>
+                    <p>Humidity:</p>
+                </li>
+                <li class="list-group-item">
+                    <strong>Date:</strong>
+                    <p>weather icon</p>
+                    <p>Temp:</p>
+                    <p>Humidity:</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<!-- jQuery JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Code to JavaScript File -->
+<script src="js/weather.js"></script>
+
 </html>
