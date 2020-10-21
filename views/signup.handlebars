@@ -7,15 +7,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h2>Sign Up Form</h2>
-      <form class="signup">
+      <h2>Sign Up Today!</h2>
+      <form action="/api/signup" method="POST" id="signup">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="email-input" placeholder="Email">
+          <label for="email">Email address</label>
+          <input type="email" class="git form-control" id="email" placeholder="Email" required>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="password-input" placeholder="Password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="minLength">Minimum Length</label>
+          <input type="number" class="form-control" id="minLength" required>
+        </div>
+        <div class="form-group">
+          <label for="maxLength">Maximum Length</label>
+          <input type="number" class="form-control" id="maxLength" required>
+        </div>
+        <div class="form-group">
+          <label for="maxAscent">Maximum Ascent</label>
+          <input type="number" class="form-control" id="maxAscent" required>
         </div>
         <div style="display: none" id="alert" class="alert alert-danger" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
