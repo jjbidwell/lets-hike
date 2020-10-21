@@ -17,8 +17,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    preferences: {
-      type: DataTypes.ARRAY(DataTypes.STRING, DataTypes.INTERGER),
+    minLength: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validation: {
+        min: 0
+      }
+    },
+    maxLength: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validation: {
+        min: 1
+      }
+    },
+    maxAscent: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   });
