@@ -3,7 +3,7 @@
 //     base: "https://api.openweathermap.org/data/2.5/"
 //   }
 
-let queryBaseURL = "http://api.openweathermap.org/data/2.5/forecast?" + apiKey;
+let queryURL = "http://api.openweathermap.org/data/2.5/forecast?" + apiKey;
 
 //variable to limit number of days pulled into forecast
 const numDays = 7;
@@ -14,7 +14,7 @@ const apiKey = "5f349aa6ada756ec606e796bb760b7e7";
 // search params
 var queryTerm = "";
 
-function runQuery(numArticles, queryURL) {
+function runQuery(numDays, queryURL) {
     $.ajax({
         url: queryURL,
         method: "GET"
