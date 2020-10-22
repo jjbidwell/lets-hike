@@ -16,13 +16,24 @@ function hikeQuery(hikeBaseURL) {
         console.log("===========================");
 
         console.log("trail", hikeData.trails.name);
-        console.log("Summary", hikeData.trails.summary)
-        console.log("difficulty", hikeData.trails.difficulty)
-        console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
+        console.log("Summary", hikeData.trails.summary);
+        console.log("difficulty", hikeData.trails.difficulty);
+        console.log("stars", hikeData.trails.stars);
+        console.log("location", hikeData.trails.location);
+        console.log("url", hikeData.trails.url);
+        console.log("imgSqSmall", hikeData.trails.imgSqSmall);
+        console.log("imgSmall", hikeData.trails.imgSmall);
+        console.log("imgSmallMed", hikeData.trails.imgSmallMed);
+        console.log("imgMedium", hikeData.trails.imgMedium);
+        console.log("length", hikeData.trails.length);
+        console.log("ascent", hikeData.trails.ascent);
+        console.log("high", hikeData.trails.high);
+        console.log("low", hikeData.trails.low);
+        console.log("longitude", hikeData.trails.longitude);
+        console.log("latitude", hikeData.trails.latitude);
+        console.log("conditionStatus", hikeData.trails.conditionStatus);
+        console.log("conditionDetails", hikeData.trails.conditionDetails);
+        console.log("conditionDate", hikeData.trails.conditionDate);
 
         let longitude = "&lon=" + hikeData.trails.longitude;
         console.log(longitude);
