@@ -1,42 +1,10 @@
-<<<<<<< HEAD
-const hikeBaseURL =
-  "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
-=======
-let hikeBaseURL = "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
->>>>>>> main
-//lat=40.0274&lon=-105.2519&maxDistance=10&key=
 
+//lat=40.0274&lon=-105.2519&maxDistance=10&key=
+const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+let hikeBaseURL = "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
 var queryTerm = "";
 
-const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
-
 function hikeQuery(hikeBaseURL) {
-<<<<<<< HEAD
-  $.ajax({
-    url: hikeBaseURL,
-    method: "GET"
-  }).done(function(hikeData) {
-    //JSON Obj Initialization
-    console.log("hikeData:", hikeData);
-    console.log("QueryURL:", hikeBaseURL);
-    console.log("===========================");
-
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-    console.log("trail", hikeData.trails.name);
-
-    //URL base One Call
-    const oneCallBaseURL = "" + latitude + longitude + distance + apiKey;
-    // needs "imperial units"
-    console.log(oneCallBaseURL);
-  });
-}
-=======
     $.ajax({
         url: hikeBaseURL,
         method: "GET"
@@ -107,7 +75,7 @@ function hikeQuery(hikeBaseURL) {
 
 
         //URL base One Call
-        let hikeCallBaseURL = "https://www.hikingproject.com/data/get-trails?" + latitude + longitude + distance + apiKey;
+        let hikeCallBaseURL = "https://www.hikingproject.com/data/get-trails?" + latitude + longitude + "&exclude=maxDistance" + apiKey;
         // needs "imperial units"
         console.log(hikeCallBaseURL);
 
@@ -115,5 +83,20 @@ function hikeQuery(hikeBaseURL) {
 
 }
 
+$('#searchBtn').on('click', function () {
+    //target input search value
+    queryTerm = $('#search').val().trim();
+    //add search value end of q=
+    var newURL = hikeCallBaseURL + "&q=" + queryTerm;
+    //test for correct api link 
+    console.log("NEW URL:", newURL);
+    //send new URL to AJAX call 
+    runQuery(10, newURL);
 
->>>>>>> main
+    //testing user search input 
+    console.log("Query Term:", queryTerm)
+    return false;
+
+})
+
+
