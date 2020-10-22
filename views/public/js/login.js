@@ -30,7 +30,6 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/search");
-        // If there's an error, log the error
       })
       .catch(err => {
         console.log(err);
