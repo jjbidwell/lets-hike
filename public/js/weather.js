@@ -1,7 +1,6 @@
-// const api = {
-//     key: "5f349aa6ada756ec606e796bb760b7e7",
-//     base: "https://api.openweathermap.org/data/2.5/"
-//   }
+
+//key: "5f349aa6ada756ec606e796bb760b7e7",
+//base: "https://api.openweathermap.org/data/2.5/"
 
 let queryBaseURL = "http://api.openweathermap.org/data/2.5/forecast?" + apiKey;
 
