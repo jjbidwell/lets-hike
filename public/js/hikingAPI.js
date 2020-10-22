@@ -72,19 +72,32 @@ function hikeQuery(hikeBaseURL) {
         let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
         let trailDifficulty = $('<p>').text("Difficulty: " + hikeData.list[0].main.difficulty);
         let trailRating = $('<p>').text("Rating: " + hikeData.list[0].main.stars);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
-        let trailDescription = $('<p>').text("Summary: " + hikeData.list[0].main.summary);
+        let trailLength = $('<p>').text("Length: " + hikeData.list[0].main.length);
+        let trailAscent = $('<p>').text("Ascent: " + hikeData.list[0].main.ascent);
+        let trailHigh = $('<p>').text("High: " + hikeData.list[0].main.high);
+        let trailLow = $('<p>').text("Low: " + hikeData.list[0].main.low);
+        let trailLon = $('<p>').text("longitude: " + hikeData.list[0].main.longitude);
+        let trailLat = $('<p>').text("Latitude: " + hikeData.list[0].main.latitude);
+        let trailCondition = $('<p>').text("Condition Status: " + hikeData.list[0].main.conditionStatus);
+        let trailDetails = $('<p>').text("Condition Details: " + hikeData.list[0].main.conditionDetails);
+        let trailDate = $('<p>').text("Date of last condition update: " + hikeData.list[0].main.conditionDate);
         let trailLink = $('<p>').text("Learn more: " + hikeData.list[0].main.url);
 
-
-
-
+        $("#trailDeets").append(trailName);
+        $("#trailDeets").append(trailLocation);
+        $("#trailDeets").append(trailDescription);
+        $("#trailDeets").append(trailDifficulty);
+        $("#trailDeets").append(trailRating);
+        $("#trailDeets").append(trailLength);
+        $("#trailDeets").append(trailAscent);
+        $("#trailDeets").append(trailHigh);
+        $("#trailDeets").append(trailLow);
+        $("#trailDeets").append(trailLon);
+        $("#trailDeets").append(trailLat);
+        $("#trailDeets").append(trailCondition);
+        $("#trailDeets").append(trailDetails);
+        $("#trailDeets").append(trailDate);
+        $("#trailDeets").append(trailLink);
 
         // longitude and latitude variables for url
         let longitude = "&lon=" + hikeData.trails.longitude;
