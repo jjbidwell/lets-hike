@@ -21,13 +21,16 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      preferences: req.body.preferences
+      minLength: req.body.minLength,
+      maxLength: req.body.maxLength,
+      maxAscent: req.body.maxAscent
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
       .catch(err => {
-        res.status(401).json(err);
+        res.send("I am error");
+        //res.status(401).json(err);
       });
   });
 
@@ -48,6 +51,24 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         id: req.user.id
+      });
+    }
+  });
+
+  app.post("/api/user_preferences", (req, res) => {
+    if (!req.user) {
+      res.redirect("/login");
+    } else {
+      console.log(req.body);
+      db.User.findAll({
+        where: {
+          id: req.user.id
+        }
+      }).then(results => {
+        const searchParams = results[0].dataValues;
+        const minLength = searchParams.minLength;
+        const maxLength = searchParams.maxLength;
+        const maxAscent = searchParams.maxAscent;
       });
     }
   });
