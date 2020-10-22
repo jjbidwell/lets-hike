@@ -23,7 +23,8 @@ $(document).ready(() => {
       !userData.password ||
       !userData.minLength ||
       !userData.maxLength ||
-      !userData.maxAscent
+      !userData.maxAscent ||
+      userData.minLength >= userData.maxLength
     ) {
       return;
     }
