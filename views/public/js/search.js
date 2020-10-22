@@ -8,6 +8,10 @@ $(document).ready(() => {
     if (!searchArea) {
       return;
     }
-    console.log(searchArea);
+    $.ajax({
+      url: "/api/user_preferences",
+      method: "POST",
+      data: { searchArea: searchArea }
+    });
   });
 });
