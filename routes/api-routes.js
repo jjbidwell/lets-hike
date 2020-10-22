@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const axios = require("axios");
+const geolocate = require("../public/js/geolocateAPI");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -59,17 +61,21 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/login");
     } else {
-      console.log(req.body);
-      db.User.findAll({
-        where: {
-          id: req.user.id
-        }
-      }).then(results => {
-        const searchParams = results[0].dataValues;
-        const minLength = searchParams.minLength;
-        const maxLength = searchParams.maxLength;
-        const maxAscent = searchParams.maxAscent;
-      });
+      geolocate(req.body.searchArea);
+      // db.User.findAll({
+      //   where: {
+      //     id: req.user.id
+      //   }
+      // }).then(results => {
+      //   const searchParams = results[0].dataValues;
+      //   const minLength = searchParams.minLength;
+      //   const maxLength = searchParams.maxLength;
+      //   const maxAscent = searchParams.maxAscent;
+      //   console.log(minLength);
+      //   console.log(maxLength);
+      //   console.log(maxAscent);
+      //   //axios.get()
+      // });
     }
   });
 };
