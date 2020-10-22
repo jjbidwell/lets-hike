@@ -8,7 +8,7 @@ const queryURL = "http://api.openweathermap.org/data/2.5/forecast?" + apiKey;
 //variable to limit number of days pulled into forecast
 const numDays = 7;
 // tracks search history
-let searchHistoryCounter = 0;
+const searchHistoryCounter = 0;
 //api key
 const apiKey = "5f349aa6ada756ec606e796bb760b7e7";
 // search params
@@ -30,7 +30,7 @@ function runQuery(numDays, queryURL) {
     console.log("Temp:", weatherData.list[0].main.temp + " F");
     console.log("Humidity:", weatherData.list[0].main.humidity + " %");
     console.log("Wind Speed:", weatherData.list[0].wind.speed + "MPH");
-    //Data for One Call from 5-Day
+    //Data for One Call from 7-Day
     console.log("Latitude", weatherData.city.coord.lat);
     console.log("Longitude", weatherData.city.coord.lon);
 
@@ -54,11 +54,11 @@ function runQuery(numDays, queryURL) {
     $("#dayPreview").append(dayPreviewHumidity);
     $("#dayPreview").append(dayPreviewWindSpeed);
 
-    //Five Day Data -- create appending loop to attach 5-day li ==== weatherData.list.length
+    //Seven Day Data -- create appending loop to attach 5-day li ==== weatherData.list.length
     for (let i = 0; i < numDays; i++) {
-      console.log("5-Day DATE:", weatherData.list[i].dt_txt);
-      console.log("5-day TEMP", weatherData.list[i].main.temp + " F");
-      console.log("5-DAY HUMIDITY:", weatherData.list[i].main.humidity + " %");
+      console.log("7-Day DATE:", weatherData.list[i].dt_txt);
+      console.log("7-day TEMP", weatherData.list[i].main.temp + " F");
+      console.log("7-DAY HUMIDITY:", weatherData.list[i].main.humidity + " %");
     }
 
     // longitude and latitude vars
