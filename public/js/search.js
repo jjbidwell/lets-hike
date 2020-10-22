@@ -8,6 +8,10 @@ $(document).ready(() => {
     if (!searchArea) {
       return;
     }
+    const key = "iqdeIphOmFTHdvGRonpZrdKkjACvb5Sg";
+    const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${searchArea}`;
+
+    //JSON Obj Initialization
     $.ajax({
       url: "/api/user_preferences",
       method: "POST",
