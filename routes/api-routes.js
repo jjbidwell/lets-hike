@@ -8,10 +8,11 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
+    // res.json({
+    //   email: req.user.email,
+    //   id: req.user.id
+    // });
+    res.redirect("/search");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -59,7 +60,6 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/login");
     } else {
-      console.log(req.body);
       db.User.findAll({
         where: {
           id: req.user.id
