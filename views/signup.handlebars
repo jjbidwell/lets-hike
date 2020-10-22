@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Sign Up Today!</h2>
+      <form action="/api/signup" method="POST" id="signup">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="git form-control" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+          <label for="minLength">Minimum Length</label>
+          <input type="number" class="form-control" id="minLength" required>
+        </div>
+        <div class="form-group">
+          <label for="maxLength">Maximum Length</label>
+          <input type="number" class="form-control" id="maxLength" required>
+        </div>
+        <div class="form-group">
+          <label for="maxAscent">Maximum Ascent</label>
+          <input type="number" class="form-control" id="maxAscent" required>
+        </div>
+        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <button type="submit" class="btn btn-default">Sign Up</button>
+      </form>
+      <br />
+      <p>Or log in <a href="/login">here</a></p>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="js/signup.js"></script>
