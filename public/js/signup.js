@@ -23,7 +23,8 @@ $(document).ready(() => {
       !userData.password ||
       !userData.minLength ||
       !userData.maxLength ||
-      !userData.maxAscent
+      !userData.maxAscent ||
+      userData.minLength >= userData.maxLength
     ) {
       return;
     }
@@ -54,7 +55,6 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/search");
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
