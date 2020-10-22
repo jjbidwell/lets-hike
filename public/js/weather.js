@@ -47,11 +47,11 @@ function runQuery(numDays, queryURL) {
         $("#dayPreview").append(dayPreviewWindSpeed);
 
 
-        //Five Day Data -- create appending loop to attach 5-day li ==== weatherData.list.length
+        //Seven Day Data -- create appending loop to attach 5-day li ==== weatherData.list.length
         for (let i = 0; i < numDays; i++) {
-            console.log("5-Day DATE:", weatherData.list[i].dt_txt);
-            console.log("5-day TEMP", weatherData.list[i].main.temp + " F");
-            console.log("5-DAY HUMIDITY:", weatherData.list[i].main.humidity + " %");
+            console.log("7-Day DATE:", weatherData.list[i].dt_txt);
+            console.log("7-day TEMP", weatherData.list[i].main.temp + " F");
+            console.log("7-DAY HUMIDITY:", weatherData.list[i].main.humidity + " %");
         }
 
         // longitude and latitude vars 
