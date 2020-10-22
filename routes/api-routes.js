@@ -54,4 +54,22 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.post("/api/user_preferences", (req, res) => {
+    if (!req.user) {
+      res.redirect("/login");
+    } else {
+      console.log(req.body);
+      db.User.findAll({
+        where: {
+          id: req.user.id
+        }
+      }).then(results => {
+        const searchParams = results[0].dataValues;
+        const minLength = searchParams.minLength;
+        const maxLength = searchParams.maxLength;
+        const maxAscent = searchParams.maxAscent;
+      });
+    }
+  });
 };

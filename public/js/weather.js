@@ -8,7 +8,7 @@ const queryURL = "http://api.openweathermap.org/data/2.5/forecast?" + apiKey;
 //variable to limit number of days pulled into forecast
 const numDays = 7;
 // tracks search history
-const searchHistoryCounter = 0;
+let searchHistoryCounter = 0;
 //api key
 const apiKey = "5f349aa6ada756ec606e796bb760b7e7";
 // search params
