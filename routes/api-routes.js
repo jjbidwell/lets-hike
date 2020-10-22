@@ -21,13 +21,16 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      preferences: req.body.preferences
+      minLength: req.body.minLength,
+      maxLength: req.body.maxLength,
+      maxAscent: req.body.maxAscent
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
       .catch(err => {
-        res.status(401).json(err);
+        res.send("I am error");
+        //res.status(401).json(err);
       });
   });
 
