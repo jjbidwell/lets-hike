@@ -55,7 +55,6 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/search");
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
