@@ -16,19 +16,24 @@ function hikeQuery(hikeBaseURL) {
         console.log("===========================");
 
         console.log("trail", hikeData.trails.name);
+        console.log("Summary", hikeData.trails.summary)
+        console.log("difficulty", hikeData.trails.difficulty)
         console.log("trail", hikeData.trails.name)
         console.log("trail", hikeData.trails.name)
         console.log("trail", hikeData.trails.name)
         console.log("trail", hikeData.trails.name)
         console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
-        console.log("trail", hikeData.trails.name)
+
+        let longitude = "&lon=" + hikeData.trails.longitude;
+        console.log(longitude);
+        let latitude = "lat=" + hikeData.trails.latitude;
+        console.log(latitude);
 
 
         //URL base One Call
-        let oneCallBaseURL = "" + latitude + longitude + distance + apiKey;
+        let hikeCallBaseURL = "https://www.hikingproject.com/data/get-trails?" + latitude + longitude + distance + apiKey;
         // needs "imperial units"
-        console.log(oneCallBaseURL);
+        console.log(hikeCallBaseURL);
 
     });
 
