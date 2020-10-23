@@ -10,7 +10,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-3">
-      <h2>Welcome <span class="member-name"></span></h2>
+      <h2>Welcome {{ email }}</h2>
+      <h4>Your Preferences:</h4>
+      <ul>
+        <li>Minimum length: {{ minLength }}</li>
+        <li>Maximum length: {{ maxLength }}</li>
+        <li>Maximum Ascent: {{ maxAscent }}</li>
+      </ul>
     </div>
   </div>
 </div>
