@@ -6,7 +6,8 @@ const apiCall = (searchLocation, minLength, maxLength, maxAscent) => {
   const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${loc}`;
 
   const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
-  const hikeBaseURL = "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
+  const hikeBaseURL =
+    "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
   var queryTerm = "";
 
   axios.get(queryUrl).then(response => {
@@ -24,16 +25,18 @@ function hikeQuery(lat, long, minLength, maxLength, maxAscent) {
   const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
   //console.log(hikingUrl);
   axios.get(hikeBaseUrl).then(response => {
+    const hikes = [];
     //console.log(maxAscent);
     const trailList = response.data.trails;
     trailList.forEach(element => {
       if (element.length <= maxLength && element.ascent <= maxAscent) {
-        console.log("Name: " + element.name);
-        console.log("Length: " + element.length);
-        console.log("Ascent: " + element.ascent);
-        console.log("URL: " + element.url);
+        hikes.push(element);
       }
     });
+    const data = {
+      hikes: hikes
+    };
+    console.log(data);
   });
 }
 
