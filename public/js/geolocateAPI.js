@@ -5,6 +5,10 @@ const apiCall = (searchLocation, minLength, maxLength, maxAscent) => {
   const loc = searchLocation;
   const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${loc}`;
 
+  const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+  const hikeBaseURL = "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
+  var queryTerm = "";
+
   axios.get(queryUrl).then(response => {
     const coords = response.data.results[0].locations[0].latLng;
     const lat = coords.lat;
