@@ -12,13 +12,6 @@ const geolocate = searchLocation => {
     console.log("Latitude: " + lat);
     console.log("Longitude: " + long);
   });
-  // $.ajax({
-  //   url: queryUrl,
-  //   method: "GET"
-  // }).done(function(locData) {
-  //   //JSON Obj Initialization
-  //   console.log(locData);
-  // });
 };
 
 module.exports = geolocate;
