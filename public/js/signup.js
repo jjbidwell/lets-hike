@@ -1,6 +1,6 @@
 $(document).ready(() => {
   // Getting references to our form and input
-  const signUpForm = $("form.signup");
+  const signUpForm = $("#signup");
   const emailInput = $("input#email");
   const passwordInput = $("input#password");
   const minLengthInput = $("input#minLength");
@@ -29,13 +29,7 @@ $(document).ready(() => {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(
-      userData.email,
-      userData.password,
-      userData.minLength,
-      userData.maxLength,
-      userData.maxAscent
-    );
+    signUpUser(userData);
     emailInput.val("");
     passwordInput.val("");
     minLengthInput.val("");
@@ -45,13 +39,13 @@ $(document).ready(() => {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password, minLength, maxLength, maxAscent) {
+  function signUpUser(userData) {
     $.post("/api/signup", {
-      email: email,
-      password: password,
-      minLength: minLength,
-      maxLength: maxLength,
-      maxAscent: maxAscent
+      email: userData.email,
+      password: userData.password,
+      minLength: userData.minLength,
+      maxLength: userData.maxLength,
+      maxAscent: userData.maxAscent
     })
       .then(() => {
         window.location.replace("/search");
