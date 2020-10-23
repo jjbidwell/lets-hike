@@ -34,9 +34,9 @@
       <br />
       <h2>Let's Hike</h2>
       <ul class="list-group hike-list">
-        <li class="list-group-item mb-3">Hike Trail One</li>
-        <li class="list-group-item mb-3">Hike Trail Two</li>
-        <li class="list-group-item mb-3">Hike Trail Three</li>
+        {{#each hike}}
+        <li>{{this.trails.imgSqSmall}} {{this.trails.name}} {{this.trails.summary}} {{this.trails.length}} {{this.hikeBaseURL}}</li>
+        {{/each}}
       </ul>
     </div>
   </div>

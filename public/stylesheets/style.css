@@ -9,13 +9,14 @@ body{
 }
  /*  hero image sign up */
 .hero-image {
-  background-image: url('../images/holly-mandarich-UVyOfX3v0Ls-unsplash.jpg');
+  background-image: url('../images/hero-image.jpg');
   background-color: #cccccc;
   height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  min-height: 100vh;
 }
 
 .hero-text button {
