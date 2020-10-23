@@ -1,15 +1,15 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
+    "username": "zdsaf37xre15ylz2",
+    "password": "eqzthqqo4il4rcjt",
     "database": "hike_db",
-    "host": "127.0.0.1",
+    "host": "f2fbe0zvg9j8p9ng.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "m5oqz0w7gxcuywhm",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
