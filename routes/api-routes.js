@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
-const geolocate = require("../public/js/geolocateAPI");
+const apiCall = require("../public/js/geolocateAPI");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -73,7 +73,7 @@ module.exports = function(app) {
         console.log(minLength);
         console.log(maxLength);
         console.log(maxAscent);
-        geolocate(req.body.searchArea);
+        apiCall(req.body.searchArea, minLength, maxLength, maxAscent);
       });
     }
   });

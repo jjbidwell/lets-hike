@@ -15,12 +15,26 @@ const apiCall = (searchLocation, minLength, maxLength, maxAscent) => {
     const long = coords.lng;
     console.log("Latitude: " + lat);
     console.log("Longitude: " + long);
+    hikeQuery(lat, long, minLength, maxLength, maxAscent);
   });
 };
 
 function hikeQuery(lat, long, minLength, maxLength, maxAscent) {
-  const hikingKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
-  const hikeBase = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=20&key=${hikingKey}`;
+  const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+  const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
+  //console.log(hikingUrl);
+  axios.get(hikeBaseUrl).then(response => {
+    //console.log(maxAscent);
+    const trailList = response.data.trails;
+    trailList.forEach(element => {
+      if (element.length <= maxLength && element.ascent <= maxAscent) {
+        console.log("Name: " + element.name);
+        console.log("Length: " + element.length);
+        console.log("Ascent: " + element.ascent);
+        console.log("URL: " + element.url);
+      }
+    });
+  });
 }
 
 module.exports = apiCall;
