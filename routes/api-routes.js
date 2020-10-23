@@ -73,7 +73,12 @@ module.exports = function(app) {
         console.log(minLength);
         console.log(maxLength);
         console.log(maxAscent);
-        apiCall(req.body.searchArea, minLength, maxLength, maxAscent);
+        apiCall(
+          req.body.searchArea,
+          minLength,
+          maxLength,
+          maxAscent,
+        );
       });
     }
   });
