@@ -61,21 +61,20 @@ module.exports = function(app) {
     if (!req.user) {
       res.redirect("/login");
     } else {
-      geolocate(req.body.searchArea);
-      // db.User.findAll({
-      //   where: {
-      //     id: req.user.id
-      //   }
-      // }).then(results => {
-      //   const searchParams = results[0].dataValues;
-      //   const minLength = searchParams.minLength;
-      //   const maxLength = searchParams.maxLength;
-      //   const maxAscent = searchParams.maxAscent;
-      //   console.log(minLength);
-      //   console.log(maxLength);
-      //   console.log(maxAscent);
-      //   //axios.get()
-      // });
+      db.User.findAll({
+        where: {
+          id: req.user.id
+        }
+      }).then(results => {
+        const searchParams = results[0].dataValues;
+        const minLength = searchParams.minLength;
+        const maxLength = searchParams.maxLength;
+        const maxAscent = searchParams.maxAscent;
+        console.log(minLength);
+        console.log(maxLength);
+        console.log(maxAscent);
+        geolocate(req.body.searchArea);
+      });
     }
   });
 };

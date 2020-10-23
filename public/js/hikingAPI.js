@@ -105,6 +105,8 @@ function hikeQuery(hikeBaseURL) {
   });
 }
 
+hikeQuery(hikeBaseURL);
+
 $("#searchBtn").on("click", function() {
   //target input search value
   queryTerm = $("#search")
