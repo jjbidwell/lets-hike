@@ -16,11 +16,11 @@ const apiCall = (searchLocation, minLength, maxLength, maxAscent) => {
     const long = coords.lng;
     console.log("Latitude: " + lat);
     console.log("Longitude: " + long);
-    hikeQuery(lat, long, minLength, maxLength, maxAscent);
+    hikeQuery(lat, long, minLength, maxLength, maxAscent, console.log);
   });
 };
 
-function hikeQuery(lat, long, minLength, maxLength, maxAscent) {
+function hikeQuery(lat, long, minLength, maxLength, maxAscent, callback) {
   const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
   const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
   //console.log(hikingUrl);
@@ -36,7 +36,7 @@ function hikeQuery(lat, long, minLength, maxLength, maxAscent) {
     const data = {
       hikes: hikes
     };
-    console.log(data);
+    callback(data);
   });
 }
 

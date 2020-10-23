@@ -34,9 +34,18 @@
       <br />
       <h2>Let's Hike</h2>
       <ul class="list-group hike-list">
-        {{#each hike}}
-        <li>{{this.trails.imgSqSmall}} {{this.trails.name}} {{this.trails.summary}} {{this.trails.length}} {{this.hikeBaseURL}}</li>
-        {{/each}}
+        {{#each hikes}}
+        <div class="card">
+          <li>
+              <a href={{this.hikes.url}}><h3>{{this.hikes.name}}</h3></a>
+              <br>
+              <a href={{this.hikes.url}}><img src={{this.hikes.imgSqSmall}} alt={{this.hikes.name}}></a>
+              <p>{{this.hikes.location}}</p>
+ 
+              {{!-- {{this.trails.name}} {{this.trails.summary}} {{this.trails.length}} {{this.hikeBaseURL}} --}}
+              </li>
+        </div>       
+       {{/each}}
       </ul>
     </div>
   </div>
