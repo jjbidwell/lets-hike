@@ -56,6 +56,21 @@ module.exports = function(app) {
     }
   });
 
+  app.post("/api/user_data", (req, res) => {
+    db.User.update(
+      {
+        minLength: parseInt(req.body.minLength),
+        maxLength: parseInt(req.body.maxLength),
+        maxAscent: parseInt(req.body.maxAscent)
+      },
+      { where: { id: req.user.id } }
+    ).then(() => {
+      res.redirect("/members");
+    });
+    // Otherwise send back the user's email and id
+    // Sending back a password, even a hashed password, isn't a good idea
+  });
+
   // app.post("/api/user_preferences", (req, res) => {
   //   function renderPage(hikes) {
   //     console.log(hikes);
