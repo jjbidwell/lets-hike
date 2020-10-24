@@ -15,13 +15,8 @@ $(document).ready(() => {
       url: "/search",
       method: "POST",
       data: { searchArea: searchArea }
-    })
-      .done(() => {
-        console.log("TEST2");
-        location.replace("/search");
-      })
-      .catch(err => {
-        console.log("error");
-      });
+    }).catch(err => {
+      console.log("error");
+    });
   });
 });
