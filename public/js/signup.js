@@ -48,7 +48,7 @@ $(document).ready(() => {
       maxAscent: userData.maxAscent
     })
       .then(() => {
-        window.location.replace("/search");
+        window.location.replace("/members");
       })
       .catch(handleLoginErr);
   }
