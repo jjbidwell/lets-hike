@@ -2,7 +2,6 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
-const apiCall = require("../public/js/geolocateAPI");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -57,29 +56,67 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/api/user_preferences", (req, res) => {
-    if (!req.user) {
-      res.redirect("/login");
-    } else {
-      db.User.findAll({
-        where: {
-          id: req.user.id
-        }
-      }).then(results => {
-        const searchParams = results[0].dataValues;
-        const minLength = searchParams.minLength;
-        const maxLength = searchParams.maxLength;
-        const maxAscent = searchParams.maxAscent;
-        console.log(minLength);
-        console.log(maxLength);
-        console.log(maxAscent);
-        apiCall(
-          req.body.searchArea,
-          minLength,
-          maxLength,
-          maxAscent,
-        );
-      });
-    }
-  });
+  // app.post("/api/user_preferences", (req, res) => {
+  //   function renderPage(hikes) {
+  //     console.log(hikes);
+  //     //res.redirect("/");
+  //     //res.render("search", { hikes: "Hello" });
+  //   }
+  //   if (!req.user) {
+  //     res.redirect("/login");
+  //   } else {
+  //     db.User.findAll({
+  //       where: {
+  //         id: req.user.id
+  //       }
+  //     }).then(results => {
+  //       const searchParams = results[0].dataValues;
+  //       const minLength = searchParams.minLength;
+  //       const maxLength = searchParams.maxLength;
+  //       const maxAscent = searchParams.maxAscent;
+  //       apiCall(
+  //         req.body.searchArea,
+  //         minLength,
+  //         maxLength,
+  //         maxAscent,
+  //         renderPage
+  //       );
+  //     });
+  //   }
+  // });
 };
+
+// function apiCall(searchLocation, minLength, maxLength, maxAscent, callback) {
+//   const key = "iqdeIphOmFTHdvGRonpZrdKkjACvb5Sg";
+//   const loc = searchLocation;
+//   const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${loc}`;
+//   const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+//   const hikeBaseURL =
+//     "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
+//   var queryTerm = "";
+
+//   axios.get(queryUrl).then(response => {
+//     const coords = response.data.results[0].locations[0].latLng;
+//     const lat = coords.lat;
+//     const long = coords.lng;
+
+//     const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+//     const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
+//     //console.log(hikingUrl);
+
+//     axios.get(hikeBaseUrl).then(response => {
+//       const hikes = [];
+//       //console.log(maxAscent);
+//       const trailList = response.data.trails;
+//       trailList.forEach(element => {
+//         if (element.length <= maxLength && element.ascent <= maxAscent) {
+//           hikes.push(element);
+//         }
+//       });
+//       module.exports = hikes;
+//       callback(hikes);
+//     });
+
+//     //hikeQuery(lat, long, minLength, maxLength, maxAscent, cb);
+//   });
+// }
