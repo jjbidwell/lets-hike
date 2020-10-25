@@ -98,17 +98,21 @@ p.read-more {
 }
 
 .member-box {
-  display: block;
+  display: inline-block;
+  background-position: 100% 40%;
+  background-image: url("../images/trail.png");
   position: relative;
+  width: 120%;
   padding: 0 10ex;
   box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  text-emphasis-color: blue;
   /* background-blend-mode: luminosity; */
-  background-color: azure;
-
 }
 
 .welcome {
-  background-color: rgb(rgb(180, 180, 180), green, blue);
+  background-origin: border-box;
+  background-color: rgb(41, 41, 41);
+  color: white;
   padding: 1ch;
   width: 100%;
   height: auto;
@@ -118,10 +122,11 @@ p.read-more {
 }
 
 .preferences {
+  display: inline-block;
   /* padding: 10ch; */
-  color: white;
+  color: rgb(255, 255, 255);
   display: block;
-  block-size: 70%;
+  /* block-size: 20%; */
   object-position: center;
   /* object-fit: contain; */
   width: auto;
@@ -129,23 +134,21 @@ p.read-more {
   margin-bottom: 10%;
   margin-top: 3%;
   padding-top: 10%;
-  background-image: url("../images/IMG_1247.jpg");
+  text-align: center;
   padding: 15ex;
   box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
 }
 
 .mins {
-  display: block;
   object-position: center;
   block-size: auto;
   color: white;
   width: auto;
+  size: 100%;
   /* object-position: center; */
   /* height: 80%;
   width: 90%; */
   text-align: left;
-  background-color: #20394d;
-  padding: 3ex;
   box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
 
 }
