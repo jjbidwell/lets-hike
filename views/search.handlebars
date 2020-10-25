@@ -37,12 +37,13 @@
               <a target="_blank" href={{url}}><h3>{{name}}</h3></a>
               <br>
 
-              <a target="_blank" href={{url}}><img src={{imgSqSmall}} alt={{name}}></a>
+              <a target="_blank" href={{url}}><img src={{imgSqSmall}} alt="{{name}}"></a>
               <p>{{location}}</p>
               <p>Summary: {{this.hikes.summary}}</p>
               <p>Trail Length: {{this.hikes.length}}</p>
               <p>Trail Ascent: {{this.hikes.ascent}}</p>
               <p>Current Trail Conditions: {{this.hikes.location}}</p>
+              <a class="btn btn-info weather-link" data-location="{{location}}" data-id={{id}} href="/{{id}}/weather">Check weather</a>
 
 
               {{!-- {{this.trails.name}} {{this.trails.summary}} {{this.trails.length}} {{this.hikeBaseURL}} --}}
