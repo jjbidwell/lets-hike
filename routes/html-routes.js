@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 const axios = require("axios");
+const date = require("date-and-time");
 const db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -63,8 +64,8 @@ module.exports = function(app) {
   app.get("/:id/weather", isAuthenticated, (req, res) => {
     for (let i = 0; i < hikes.length; i++) {
       if (hikes[i].id === parseInt(req.params.id)) {
-        // console.log(hikes[i].location);
-        weatherApiCall(hikes[i].location);
+        const trailName = hikes[i].name;
+        weatherApiCall(hikes[i].location, trailName);
       }
     }
     res.send("Test");
@@ -89,12 +90,10 @@ module.exports = function(app) {
     });
   });
 
-
-
   app.get("/edit", isAuthenticated, (req, res) => {
     res.render("edit");
   });
-  
+
   function hikingApiCall(
     searchLocation,
     minLength,
@@ -128,17 +127,10 @@ module.exports = function(app) {
         });
         callback("/search");
       });
-      // } else if (hikeOrWeather === "weather") {
-      //   const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}.441792&lon=${long}&exclude=currently,minutely,hourly,alerts&appid=`;
-      //   const weatherKey = process.env.WEATHER_KEY;
-      //   axios.get(weatherUrl).then(response => {
-      //     callback(response);
-      //   });
-      // }
     });
   }
 
-  function weatherApiCall(searchLocation) {
+  function weatherApiCall(searchLocation, trail) {
     const loc = searchLocation;
     const mapKey = process.env.MAP_KEY;
     const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${loc}`;
@@ -149,12 +141,37 @@ module.exports = function(app) {
       // console.log("Lat: " + lat);
       // console.log("Long: " + long);
       const weatherKey = process.env.WEATHER_KEY;
-      const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=currently,minutely,hourly,alerts&appid=${weatherKey}`;
+      const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&units=imperial&appid=${weatherKey}`;
 
       axios
         .get(weatherUrl)
         .then(response => {
-          console.log(response.data.daily);
+          const weatherForcasts = [];
+          const dates = [];
+          const currentData = response.data.current;
+          const sevenDayArray = response.data.daily;
+          // console.log("Current Temp: " + currentData.temp);
+          // console.log(
+          //   "Current conditions: " + currentData.weather[0].description
+          // );
+
+          for (let i = 1; i < sevenDayArray.length; i++) {
+            let variableDate = new Date();
+            variableDate.setDate(variableDate.getDate() + i);
+            variableDate = date.format(variableDate, "M/D");
+            dates.push({ date: variableDate });
+            weatherForcasts.push({
+              high: sevenDayArray[1].temp.max,
+              low: sevenDayArray[1].temp.min,
+              conditions: sevenDayArray[i].weather[0].description
+            });
+          }
+          const weatherObject = {
+            current: currentData,
+            dates: dates,
+            weather: weatherForcasts
+          };
+          console.log(weatherObject);
         })
         .catch(err => {
           console.log(err);
