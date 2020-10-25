@@ -88,7 +88,9 @@ body{
 }
 .media {
   background-color: white;
+
   margin: 10ex 0;
+
   border: #000;
 }
 p.read-more {
@@ -147,6 +149,7 @@ p.read-more {
   box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
 
 }
+
 
 
 

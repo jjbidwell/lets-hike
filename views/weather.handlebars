@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="#">Let's Hike</a>
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main-navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="hero-image-top">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h2>Seven day weather for {{name}}</h2>
+      <h4>Current Weather:</h4>
+      <ul>
+          <li>Current Temperature: {{ current.temp }}</li>
+          <li>Humidity: {{ current.humidity }}</li>
+          <li>UVI: {{ current.uvi }}</li>
+          <li>Conditions: {{current.condition}}</li>
+      </ul>
+      {{#each weather}}
+      <ul>
+        <li>{{date}}</li>
+        <li>High temp: {{high}}</li>
+        <li>Low temp: {{low}}</li>
+        <li>Conditions: {{conditions}}</li>
+      </ul>
+      {{/each}}
+      <br>
+    </div>
+  </div>
+</div>

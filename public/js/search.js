@@ -16,11 +16,36 @@ $(document).ready(() => {
       method: "POST",
       data: { searchArea: searchArea }
     })
-    .done(() => {
-      console.log("TEST2");
-      location.replace("/search");
-    }).catch(err => {
-      console.log("error");
-    });
+
+      .done(() => {
+        console.log("TEST2");
+        location.replace("/search");
+      })
+      .catch(err => {
+        console.log("error");
+      });
   });
+
+  // $(".weather-link").on("click", getWeather);
+
+  // function getWeather() {
+  //   const weatherId;
+  //   const weatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid={API key}""
+  //   const trailLocation = $(this).data("location");
+  //   const trailId = $(this).data("id");
+  //   console.log(trailId, trailLocation);
+
+  //   $.ajax({
+  //     url: "/search",
+  //     method: "GET",
+  //     data: trail
+  //   })
+  //     .done(() => {
+  //       console.log("TEST2");
+  //       location.replace("/search");
+  //     })
+  //     .catch(err => {
+  //       console.log("error");
+  //     });
+  // }
 });
