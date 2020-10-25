@@ -3,9 +3,15 @@ form.login {
   margin-top: 50px;
 }
 body{
-  background-color: #27577d;
+  background-color: #6290b5;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.edit-btn {
+  background-color: rgb(202, 202, 202);
+  object-position: center;
+  color: white;
+
 }
  /*  hero image sign up */
 .hero-image {
@@ -44,8 +50,8 @@ body{
   line-height: 1.5;
 }
 .hero-text button:hover {
-  border:1px solid #4683b4;
-  background:#4683b4;
+  border:1px solid #5e8baf;
+  background:#7e9fb9;
   border-radius: 0;
   color:#fff;
 }
@@ -80,14 +86,74 @@ body{
 .navbar-brand {
   font-weight: bolder;
 }
-
 .media {
   background-color: white;
-  margin: 10px 0;
+
+  margin: 10ex 0;
+
   border: #000;
 }
 p.read-more {
   text-align:right;
 }
+
+.member-box {
+  display: inline-block;
+  background-position: 100% 40%;
+  background-image: url("../images/trail.png");
+  position: relative;
+  width: 120%;
+  padding: 0 10ex;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  text-emphasis-color: blue;
+  /* background-blend-mode: luminosity; */
+}
+
+.welcome {
+  background-origin: border-box;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  padding: 1ch;
+  width: 100%;
+  height: auto;
+  object-position: center;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.preferences {
+  display: inline-block;
+  /* padding: 10ch; */
+  color: rgb(255, 255, 255);
+  display: block;
+  /* block-size: 20%; */
+  object-position: center;
+  /* object-fit: contain; */
+  width: auto;
+  height: inherit;
+  margin-bottom: 10%;
+  margin-top: 3%;
+  padding-top: 10%;
+  text-align: center;
+  padding: 15ex;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+}
+
+.mins {
+  object-position: center;
+  block-size: auto;
+  color: white;
+  width: auto;
+  size: 100%;
+  /* object-position: center; */
+  /* height: 80%;
+  width: 90%; */
+  text-align: left;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+
+}
+
+
+
 
 

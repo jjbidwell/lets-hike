@@ -1,7 +1,7 @@
 {
   "name": "lets-hike",
   "version": "1.0.0",
-  "description": "",
+  "description": "** Env Vars This app uses dotenv.  Requires a \".env\" file created in root with the contents like the following (change asffsf to what you wish for dev purposes):",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
@@ -36,5 +36,13 @@
     "mocha": "^8.2.0",
     "nodemon": "^2.0.6",
     "prettier": "^1.13.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjbidwell/lets-hike.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jjbidwell/lets-hike/issues"
+  },
+  "homepage": "https://github.com/jjbidwell/lets-hike#readme"
 }
