@@ -4,9 +4,12 @@ const axios = require("axios");
 const db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const { parse } = require("path");
 //const hikes = require("./api-routes");
 
 let hikes = [];
+let lat;
+let long;
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -44,7 +47,7 @@ module.exports = function(app) {
         const minLength = searchParams.minLength;
         const maxLength = searchParams.maxLength;
         const maxAscent = searchParams.maxAscent;
-        apiCall(
+        hikingApiCall(
           req.body.searchArea,
           minLength,
           maxLength,
@@ -55,6 +58,16 @@ module.exports = function(app) {
         );
       });
     }
+  });
+
+  app.get("/:id/weather", isAuthenticated, (req, res) => {
+    for (let i = 0; i < hikes.length; i++) {
+      if (hikes[i].id === parseInt(req.params.id)) {
+        // console.log(hikes[i].location);
+        weatherApiCall(hikes[i].location);
+      }
+    }
+    res.send("Test");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -76,14 +89,22 @@ module.exports = function(app) {
     });
   });
 
+
+
   app.get("/edit", isAuthenticated, (req, res) => {
     res.render("edit");
   });
-
-  function apiCall(searchLocation, minLength, maxLength, maxAscent, callback) {
-    const key = "iqdeIphOmFTHdvGRonpZrdKkjACvb5Sg";
+  
+  function hikingApiCall(
+    searchLocation,
+    minLength,
+    maxLength,
+    maxAscent,
+    callback
+  ) {
+    const mapKey = process.env.MAP_KEY;
     const loc = searchLocation;
-    const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${loc}`;
+    const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${loc}`;
     const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
     const hikeBaseURL =
       "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
@@ -96,7 +117,7 @@ module.exports = function(app) {
 
       const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
       const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
-
+      //if (hikeOrWeather === "hike") {
       axios.get(hikeBaseUrl).then(response => {
         hikes = [];
         const trailList = response.data.trails;
@@ -107,6 +128,37 @@ module.exports = function(app) {
         });
         callback("/search");
       });
+      // } else if (hikeOrWeather === "weather") {
+      //   const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}.441792&lon=${long}&exclude=currently,minutely,hourly,alerts&appid=`;
+      //   const weatherKey = process.env.WEATHER_KEY;
+      //   axios.get(weatherUrl).then(response => {
+      //     callback(response);
+      //   });
+      // }
+    });
+  }
+
+  function weatherApiCall(searchLocation) {
+    const loc = searchLocation;
+    const mapKey = process.env.MAP_KEY;
+    const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${loc}`;
+    axios.get(queryUrl).then(response => {
+      const coords = response.data.results[0].locations[0].latLng;
+      const lat = coords.lat;
+      const long = coords.lng;
+      // console.log("Lat: " + lat);
+      // console.log("Long: " + long);
+      const weatherKey = process.env.WEATHER_KEY;
+      const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=currently,minutely,hourly,alerts&appid=${weatherKey}`;
+
+      axios
+        .get(weatherUrl)
+        .then(response => {
+          console.log(response.data.daily);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     });
   }
 };
