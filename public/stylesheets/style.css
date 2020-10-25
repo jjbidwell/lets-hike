@@ -81,3 +81,11 @@ body{
   font-weight: bolder;
 }
 
+.media {
+  background-color: white;
+  margin: 10px 0;
+  border: #000;
+}
+p.read-more {
+  text-align:right;
+}
