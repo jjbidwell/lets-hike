@@ -3,9 +3,15 @@ form.login {
   margin-top: 50px;
 }
 body{
-  background-color: rgb(98, 149, 98);
+  background-color: #6290b5;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.edit-btn {
+  background-color: rgb(202, 202, 202);
+  object-position: center;
+  color: white;
+
 }
  /*  hero image sign up */
 .hero-image {
@@ -20,8 +26,8 @@ body{
 }
 
 .hero-text button {
-  border:1px solid #487f2d;
-  background:#487f2d;
+  border:1px solid rgb(rgb(73, 73, 73), green, blue);
+  background:#27577d;
   border-radius: 0;
   color:white;
  
@@ -44,14 +50,14 @@ body{
   line-height: 1.5;
 }
 .hero-text button:hover {
-  border:1px solid #6ab446;
-  background:#6ab446;
+  border:1px solid #5e8baf;
+  background:#7e9fb9;
   border-radius: 0;
   color:#fff;
 }
 /*  hero image all others */
 .hero-image-top {
-  background-image: url('../images/IMG_1428.jpg');
+  background-image: url('../images/hiking-2.jpg');
   background-color: #cccccc;
   height: 150px;
   background-position: center;
@@ -61,7 +67,7 @@ body{
 }
  /*--- navigation bar ---*/
  .navbar {
-  background:#487f2d;
+  background:#20394d;
 }
 .nav-link,
 .navbar-brand {
@@ -82,9 +88,69 @@ body{
 }
 .media {
   background-color: white;
-  margin: 10px 0;
+
+  margin: 10ex 0;
+
   border: #000;
 }
 p.read-more {
   text-align:right;
 }
+
+.member-box {
+  display: block;
+  position: relative;
+  padding: 0 10ex;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  /* background-blend-mode: luminosity; */
+  background-color: azure;
+
+}
+
+.welcome {
+  background-color: rgb(rgb(180, 180, 180), green, blue);
+  padding: 1ch;
+  width: 100%;
+  height: auto;
+  object-position: center;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.preferences {
+  /* padding: 10ch; */
+  color: white;
+  display: block;
+  block-size: 70%;
+  object-position: center;
+  /* object-fit: contain; */
+  width: auto;
+  height: inherit;
+  margin-bottom: 10%;
+  margin-top: 3%;
+  padding-top: 10%;
+  background-image: url("../images/IMG_1247.jpg");
+  padding: 15ex;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+}
+
+.mins {
+  display: block;
+  object-position: center;
+  block-size: auto;
+  color: white;
+  width: auto;
+  /* object-position: center; */
+  /* height: 80%;
+  width: 90%; */
+  text-align: left;
+  background-color: #20394d;
+  padding: 3ex;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+
+}
+
+
+
+
+

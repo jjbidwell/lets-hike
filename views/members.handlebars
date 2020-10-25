@@ -14,21 +14,29 @@
     </ul>
   </div>
 </nav>
+
 <div class="hero-image-top">
 </div>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto col-sm-12">
-      <h2>Welcome {{ email }}</h2>
-      <h4>Your Preferences:</h4>
-      <ul>
-        <li>Minimum length: {{ minLength }}</li>
-        <li>Maximum length: {{ maxLength }}</li>
-        <li>Maximum Ascent: {{ maxAscent }}</li>
-      </ul>
-      <button class="btn btn-success btn-lg"><a href="/edit">Edit preferences</a></button>
+    <div class="col-md-6 mx-auto col-sm-12 member-box">
+      <div class="welcome">
+        <h2>Welcome <br> {{ email }}</h2>
+      </div>
+      <div class="preferences">
+        <h4>Your Preferences:</h4>
+        <ul class= "mins">
+          <li>Minimum length: {{ minLength }}</li>
+          <li>Maximum length: {{ maxLength }}</li>
+          <li>Maximum Ascent: {{ maxAscent }}</li>
+        </ul>
+        <button class="btn btn-success btn-lg edit-btn"><a href="/edit">Edit Preferences</a>
+        </button>
+      </div>    
     </div>
   </div>
 </div>
+
 
 <script type="text/javascript" src="js/members.js"></script>
