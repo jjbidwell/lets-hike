@@ -16,12 +16,13 @@ $(document).ready(() => {
       method: "POST",
       data: { searchArea: searchArea }
     })
-    .done(() => {
-      console.log("TEST2");
-      location.replace("/search");
-    }).catch(err => {
-      console.log("error");
-    });
+      .done(() => {
+        console.log("TEST2");
+        location.replace("/search");
+      })
+      .catch(err => {
+        console.log("error");
+      });
   });
 
   // $(".weather-link").on("click", getWeather);
