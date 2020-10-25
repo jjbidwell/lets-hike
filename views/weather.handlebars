@@ -17,7 +17,21 @@
   <div class="row">
     <div class="col-md-6 offset-3">
       <h2>Seven day weather for {{name}}</h2>
-      
+      <h4>Current Weather:</h4>
+      <ul>
+          <li>Current Temperature: {{ current.temp }}</li>
+          <li>Humidity: {{ current.humidity }}</li>
+          <li>UVI: {{ current.uvi }}</li>
+          <li>Conditions: {{current.condition}}</li>
+      </ul>
+      {{#each weather}}
+      <ul>
+        <li>{{date}}</li>
+        <li>High temp: {{high}}</li>
+        <li>Low temp: {{low}}</li>
+        <li>Conditions: {{conditions}}</li>
+      </ul>
+      {{/each}}
       <br>
     </div>
   </div>

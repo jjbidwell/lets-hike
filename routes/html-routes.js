@@ -65,10 +65,12 @@ module.exports = function(app) {
     for (let i = 0; i < hikes.length; i++) {
       if (hikes[i].id === parseInt(req.params.id)) {
         const trailName = hikes[i].name;
-        weatherApiCall(hikes[i].location, trailName);
+        weatherApiCall(hikes[i].location, trailName, data => {
+          res.render("weather", data);
+        });
       }
     }
-    res.send("Test");
+    //res.send("Test");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -115,7 +117,7 @@ module.exports = function(app) {
       const long = coords.lng;
 
       const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
-      const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&maxResults=50&key=${hikeApiKey}`;
+      const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&sort=distance&maxResults=35&key=${hikeApiKey}`;
       //if (hikeOrWeather === "hike") {
       axios.get(hikeBaseUrl).then(response => {
         hikes = [];
@@ -130,7 +132,7 @@ module.exports = function(app) {
     });
   }
 
-  function weatherApiCall(searchLocation, trail) {
+  function weatherApiCall(searchLocation, trail, callback) {
     const loc = searchLocation;
     const mapKey = process.env.MAP_KEY;
     const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${loc}`;
@@ -159,19 +161,27 @@ module.exports = function(app) {
             let variableDate = new Date();
             variableDate.setDate(variableDate.getDate() + i);
             variableDate = date.format(variableDate, "M/D");
-            dates.push({ date: variableDate });
+            //dates.push({ date: variableDate });
             weatherForcasts.push({
-              high: sevenDayArray[1].temp.max,
-              low: sevenDayArray[1].temp.min,
+              date: variableDate,
+              high: sevenDayArray[i].temp.max,
+              low: sevenDayArray[i].temp.min,
               conditions: sevenDayArray[i].weather[0].description
             });
           }
           const weatherObject = {
-            current: currentData,
-            dates: dates,
+            name: trail,
+            current: {
+              temperature: currentData.temp,
+              humidity: currentData.humidity,
+              uvi: currentData.uvi,
+              condition: currentData.weather[0].description
+            },
             weather: weatherForcasts
           };
-          console.log(weatherObject);
+          //console.log(weatherObject);
+          callback(weatherObject);
+          //res.render("weather");
         })
         .catch(err => {
           console.log(err);
