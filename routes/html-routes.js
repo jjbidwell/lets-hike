@@ -170,7 +170,7 @@ module.exports = function(app) {
             current: currentData,
             dates: dates,
             weather: weatherForcasts
-          }
+          };
           console.log(weatherObject);
         })
         .catch(err => {
