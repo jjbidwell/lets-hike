@@ -18,7 +18,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 mx-auto col-sm-12">
       <h2>Welcome {{ email }}</h2>
       <h4>Your Preferences:</h4>
       <ul>
@@ -26,6 +26,7 @@
         <li>Maximum length: {{ maxLength }}</li>
         <li>Maximum Ascent: {{ maxAscent }}</li>
       </ul>
+      <button class="btn btn-success btn-lg"><a href="/edit">Edit preferences</a></button>
     </div>
   </div>
 </div>

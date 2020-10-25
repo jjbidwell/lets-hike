@@ -18,7 +18,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 mx-auto col-sm-12">
       <h2>Search for a trail</h2>
       <form id="search-form">
         <div class="form-group">
@@ -32,24 +32,20 @@
       <h2>Let's Hike</h2>
       <ul class="list-group hike-list">
         {{#each hikes}}
-        <div class="card">
-          <li>
-              <a target="_blank" href={{url}}><h3>{{name}}</h3></a>
-              <br>
-
-              <a target="_blank" href={{url}}><img src={{imgSqSmall}} alt="{{name}}"></a>
-              <p>{{location}}</p>
-              <p>Summary: {{this.hikes.summary}}</p>
-              <p>Trail Length: {{this.hikes.length}}</p>
-              <p>Trail Ascent: {{this.hikes.ascent}}</p>
-              <p>Current Trail Conditions: {{this.hikes.location}}</p>
-              <a class="btn btn-info weather-link" data-location="{{location}}" data-id={{id}} href="/{{id}}/weather">Check weather</a>
-
-
-              {{!-- {{this.trails.name}} {{this.trails.summary}} {{this.trails.length}} {{this.hikeBaseURL}} --}}
-              </li>
-        </div>       
-       {{/each}}
+        <li class="media">
+          <a target="_blank" href={{url}}><img src={{imgSqSmall}} alt={{name}} class="align-self-center mr-3"
+              style="width:100px"></a>
+          <div class="media-body">
+            <h4 class="mt-0 mb-1">{{name}}</h4>
+            <small><i>{{location}}</i></small>
+            <p>{{summary}}</p>
+            <small>Trail Length: {{length}}</small>
+            <small>Trail Ascent: {{ascent}}</small>
+            <small>Current Trail Conditions: {{conditionStatus}}</small>
+            <p class="read-more"><a href={{url}}>more details...</a></p>
+          </div>
+        </li>
+        {{/each}}
       </ul>
     </div>
   </div>
