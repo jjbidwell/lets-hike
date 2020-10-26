@@ -26,7 +26,7 @@ body{
 }
 
 .hero-text button {
-  border:1px solid rgb(rgb(73, 73, 73), green, blue);
+  border:1px solid rgb(rgb(73, 73, 73), rgb(136, 136, 136), rgb(0, 0, 0));
   background:#27577d;
   border-radius: 0;
   color:white;
@@ -55,15 +55,98 @@ body{
   border-radius: 0;
   color:#fff;
 }
-/*  hero image all others */
-.hero-image-top {
-  background-image: url('../images/hikebg.png');
-  background-color: #cccccc;
-  height: auto;
+
+.member-box {
+  display: inline-block;
+  background-position: 100% 40%;
+  /* background-image: url("../images/trail.png"); */
+  position: relative;
+  width: 120%;
+  padding: 0 10ex;
+  /* box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  text-emphasis-color: blue; */
+  /* background-blend-mode: luminosity; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+}
+
+.welcome {
+  /* background-origin: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(99, 137, 182);
+  padding: 1ch;
+  width: 100%;
+  height: auto;
+  object-position: center;
+  text-align: center;
+  margin-top: 3%;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: inherit; */
+  padding: 10px 16px;
+  color: rgb(42, 88, 131);
+  background-blend-mode: overlay;
+  font-optical-sizing: 10vmax;
+  border-style: solid;
+  background-size: inherit;
+  background-color: white;
+  margin-top: 11rem;
+}
+
+.preferences {
+  display: inline-block;
+  /* padding: 10ch; */
+  color: rgb(42, 88, 131);
+  display: block;
+  /* block-size: 20%; */
+  object-position: center;
+  /* object-fit: contain; */
+  /* width: auto;
+  height: inherit; */
+  margin-bottom: 10%;
+  margin-top: 10%;
+  padding: 10%;
+  text-align: center;
+  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  background-color: white;
+  border-style: solid;
+}
+
+.mins {
+  object-position: center;
+  block-size: auto;
+  color: rgb(57, 79, 99);
+  width: 100%;
+  size: 100%;
+  /* object-position: center; */
+  /* height: 80%;
+  width: 90%; */
+  text-align: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: inherit;
+  padding: 1rem;
+  text-align: center;
+
+}
+/*  hero image all others */
+.hero-image-top {
+  background-image: url('../images/hikebg.png');
+  opacity: 0.72;
+  /* background-color: #cccccc; */
+  height: 10rem;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
  /*--- navigation bar ---*/
  .navbar {
@@ -97,61 +180,7 @@ p.read-more {
   text-align:right;
 }
 
-.member-box {
-  display: inline-block;
-  background-position: 100% 40%;
-  /* background-image: url("../images/trail.png"); */
-  position: relative;
-  width: 120%;
-  padding: 0 10ex;
-  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
-  text-emphasis-color: blue;
-  /* background-blend-mode: luminosity; */
-}
 
-.welcome {
-  background-origin: border-box;
-  background-color: rgb(41, 41, 41);
-  color: white;
-  padding: 1ch;
-  width: 100%;
-  height: auto;
-  object-position: center;
-  text-align: center;
-  margin-top: 3%;
-}
-
-.preferences {
-  display: inline-block;
-  /* padding: 10ch; */
-  color: rgb(255, 255, 255);
-  display: block;
-  /* block-size: 20%; */
-  object-position: center;
-  /* object-fit: contain; */
-  width: auto;
-  height: inherit;
-  margin-bottom: 10%;
-  margin-top: 3%;
-  padding-top: 10%;
-  text-align: center;
-  padding: 15ex;
-  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
-}
-
-.mins {
-  object-position: center;
-  block-size: auto;
-  color: white;
-  width: auto;
-  size: 100%;
-  /* object-position: center; */
-  /* height: 80%;
-  width: 90%; */
-  text-align: left;
-  box-shadow: 0 4ex 8ex 0 rgba(0,0,0,0.2);
-
-}
 
 
 
