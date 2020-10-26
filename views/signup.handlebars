@@ -19,43 +19,57 @@
       quick trail after work! No matter what type of hike you’re planning, we can help you find the best trails matching
       your preferences with an expansive 7 day weather forecast to adequately plan any type of hike. Don’t get rained
       out half way through a hike, use our technology to have as much fun as possible.</p>
-    <button class="btn btn-outline-secondary btn-lg"><a href="#sign-up">Sign up-it's free</a></button>
+    <button type="button" class="btn btn-outline-secondary btn-lg" data-toggle="modal" data-target="#myModal">Sign
+      up-it's free</button>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto col-sm-12">
-      <a name="sign-up"></a>
-      <h2>Sign Up Today!</h2>
-      <form id="signup">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="git form-control" id="email" name="email" placeholder="Email" required>
+      <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="myModalLabel">Sign up for Let's Hike</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              <form id="signup">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="git form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="minLength">Minimum Length in miles</label>
+                  <input type="number" class="form-control" id="minLength" name="minLength" required>
+                </div>
+                <div class="form-group">
+                  <label for="maxLength">Maximum Length in miles</label>
+                  <input type="number" class="form-control" id="maxLength" name="maxLength" required>
+                </div>
+                <div class="form-group">
+                  <label for="maxAscent">Maximum Ascent in feet</label>
+                  <input type="number" class="form-control" id="maxAscent" name="maxAscent" required>
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Sign Up</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        </div>
-        <div class="form-group">
-          <label for="minLength">Minimum Length in miles</label>
-          <input type="number" class="form-control" id="minLength" name="minLength" required>
-        </div>
-        <div class="form-group">
-          <label for="maxLength">Maximum Length in miles</label>
-          <input type="number" class="form-control" id="maxLength" name="maxLength" required>
-        </div>
-        <div class="form-group">
-          <label for="maxAscent">Maximum Ascent in feet</label>
-          <input type="number" class="form-control" id="maxAscent" name="maxAscent" required>
-        </div>
-        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="sr-only">Error:</span> <span class="msg"></span>
-        </div>
-        <button type="submit" class="btn btn-default">Sign Up</button>
-      </form>
-      <br />
-      <p>Or log in <a href="/login">here</a></p>
+      </div>
     </div>
   </div>
 </div>
