@@ -27,7 +27,7 @@ module.exports = function(app) {
       maxAscent: req.body.maxAscent
     })
       .then(() => {
-        res.redirect(307, "/api/login");
+        //res.redirect(307, "/api/login");
       })
       .catch(err => {
         res.send("I am error");
@@ -60,7 +60,7 @@ module.exports = function(app) {
       { where: { id: req.user.id } }
     )
       .then(() => {
-        res.redirect("/members");
+        // res.redirect("/members");
       })
       .catch(err => {
         if (err) {

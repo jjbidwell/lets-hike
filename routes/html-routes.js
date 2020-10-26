@@ -13,20 +13,22 @@ let long;
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
+    hikes = [];
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/search");
+    } else {
+      res.render("signup");
     }
-    res.render("signup");
-    hikes = [];
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/search");
+    } else {
+      res.render("login");
     }
-    res.render("login");
   });
 
   app.get("/search", isAuthenticated, (req, res) => {
@@ -35,35 +37,31 @@ module.exports = function(app) {
   });
 
   app.post("/search", isAuthenticated, (req, res) => {
-    if (!req.user) {
-      res.redirect("/login");
-    } else {
-      db.User.findAll({
-        where: {
-          id: req.user.id
-        }
-      })
-        .then(results => {
-          const searchParams = results[0].dataValues;
-          const minLength = searchParams.minLength;
-          const maxLength = searchParams.maxLength;
-          const maxAscent = searchParams.maxAscent;
-          hikingApiCall(
-            req.body.searchArea,
-            minLength,
-            maxLength,
-            maxAscent,
-            search => {
-              res.redirect(search);
-            }
-          );
-        })
-        .catch(err => {
-          if (err) {
-            throw err;
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    })
+      .then(results => {
+        const searchParams = results[0].dataValues;
+        const minLength = searchParams.minLength;
+        const maxLength = searchParams.maxLength;
+        const maxAscent = searchParams.maxAscent;
+        hikingApiCall(
+          req.body.searchArea,
+          minLength,
+          maxLength,
+          maxAscent,
+          search => {
+            res.redirect(search);
           }
-        });
-    }
+        );
+      })
+      .catch(err => {
+        if (err) {
+          throw err;
+        }
+      });
   });
 
   app.get("/:id/weather", isAuthenticated, (req, res) => {
