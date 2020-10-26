@@ -43,10 +43,10 @@ module.exports = function(app) {
     if (!req.user) {
       res.json({});
     } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
+      // res.json({
+      //   email: req.user.email,
+      //   id: req.user.id
+      // });
     }
   });
 
