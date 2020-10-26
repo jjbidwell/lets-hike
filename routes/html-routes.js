@@ -114,7 +114,7 @@ module.exports = function(app) {
     const mapKey = process.env.MAP_KEY;
     const loc = searchLocation;
     const queryUrl = `http://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${loc}`;
-    const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+    const hikeApiKey = process.env.HIKING_KEY;
     const hikeBaseURL =
       "https://www.hikingproject.com/data/get-trails?" + hikeApiKey;
     var queryTerm = "";
@@ -126,7 +126,7 @@ module.exports = function(app) {
         const lat = coords.lat;
         const long = coords.lng;
 
-        const hikeApiKey = "200954275-61d35dbb141f7d0585437ea6275153f0";
+        const hikeApiKey = process.env.HIKING_KEY;
         const hikeBaseUrl = `https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&minLength=${minLength}&maxDistance=25&sort=distance&maxResults=35&key=${hikeApiKey}`;
 
         axios
@@ -177,7 +177,6 @@ module.exports = function(app) {
               let variableDate = new Date();
               variableDate.setDate(variableDate.getDate() + i);
               variableDate = date.format(variableDate, "M/D");
-              //dates.push({ date: variableDate });
               weatherForcasts.push({
                 date: variableDate,
                 high: sevenDayArray[i].temp.max,
@@ -195,9 +194,7 @@ module.exports = function(app) {
               },
               weather: weatherForcasts
             };
-            //console.log(weatherObject);
             callback(weatherObject);
-            //res.render("weather");
           })
           .catch(err => {
             console.log(err);
