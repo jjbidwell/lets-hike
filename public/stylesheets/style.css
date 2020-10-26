@@ -56,6 +56,46 @@ body{
   color:#fff;
 }
 
+/*  hero image all others */
+.hero-image-top {
+  background-image: url('../images/hiking-2.jpg');
+  background-color: #cccccc;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+ /*--- navigation bar ---*/
+ .navbar {
+  background:#20394d;
+}
+.nav-link,
+.navbar-brand {
+  color: #fff;
+  cursor: pointer;
+}
+.nav-link {
+  margin-right: 1em !important;
+}
+.nav-link:hover {
+  color: rgb(95, 95, 95);
+}
+.navbar-collapse {
+  justify-content: flex-end;
+}
+.navbar-brand {
+  font-weight: bolder;
+}
+.media {
+  background-color: white;
+  margin: 10px 0;
+  border: #000;
+}
+p.read-more {
+  text-align:right;
+}
+
 .member-box {
   display: inline-block;
   background-position: 100% 40%;

@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="main-navigation">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/search">Home</a>
       </li>
     </ul>
   </div>
@@ -15,24 +15,28 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 mx-auto col-sm-12">
       <h2>Seven day weather for {{name}}</h2>
       <h4>Current Weather:</h4>
       <ul>
-          <li>Current Temperature: {{ current.temp }}</li>
-          <li>Humidity: {{ current.humidity }}</li>
-          <li>UVI: {{ current.uvi }}</li>
-          <li>Conditions: {{current.condition}}</li>
+        <li>Current Temperature: {{ current.temp }}</li>
+        <li>Humidity: {{ current.humidity }}</li>
+        <li>UVI: {{ current.uvi }}</li>
+        <li>Conditions: {{current.condition}}</li>
       </ul>
-      {{#each weather}}
-      <ul>
-        <li>{{date}}</li>
-        <li>High temp: {{high}}</li>
-        <li>Low temp: {{low}}</li>
-        <li>Conditions: {{conditions}}</li>
+      <ul class="list-group weather-list">
+        {{#each weather}}
+        <li class="media">
+          <div class="media-body">
+            <h4>Day: {{date}}</h4>
+            <p>High temp: {{high}}</p>
+            <p>Low temp: {{low}}</p>
+            <p>Conditions: {{conditions}}</p>
+          </div>
+        </li>
+        {{/each}}
+        <br>
       </ul>
-      {{/each}}
-      <br>
     </div>
   </div>
 </div>

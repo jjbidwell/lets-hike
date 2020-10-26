@@ -41,9 +41,8 @@
             <p>{{summary}}</p>
             <small>Trail Length: {{length}}</small>
             <small>Trail Ascent: {{ascent}}</small>
-            <small>Current Trail Conditions: {{conditionStatus}}</small>
-            <p class="read-more"><a href={{url}}>More details...</a></p>
-            <p class="read-more"><a href="/{{id}}/weather">Check weather...</a></p>
+            <small>Current Trail Conditions: <a href="/{{id}}/weather">{{conditionStatus}}</a></small>
+            <p class="read-more"><a target="_blank" href={{url}}>More details...</a></p>
           </div>
         </li>
         {{/each}}
