@@ -88,15 +88,12 @@ body{
 }
 .media {
   background-color: white;
-
-  margin: 10ex 0;
-
+  margin: 10px 0;
   border: #000;
 }
 p.read-more {
   text-align:right;
 }
-
 .member-box {
   display: inline-block;
   background-position: 100% 40%;
