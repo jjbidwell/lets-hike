@@ -57,9 +57,9 @@ body{
 }
 /*  hero image all others */
 .hero-image-top {
-  background-image: url('../images/hiking-2.jpg');
+  background-image: url('../images/hikebg.png');
   background-color: #cccccc;
-  height: 150px;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -100,7 +100,7 @@ p.read-more {
 .member-box {
   display: inline-block;
   background-position: 100% 40%;
-  background-image: url("../images/trail.png");
+  /* background-image: url("../images/trail.png"); */
   position: relative;
   width: 120%;
   padding: 0 10ex;
