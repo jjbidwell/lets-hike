@@ -43,10 +43,10 @@ module.exports = function(app) {
     if (!req.user) {
       res.json({});
     } else {
-      // res.json({
-      //   email: req.user.email,
-      //   id: req.user.id
-      // });
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
     }
   });
 
@@ -60,7 +60,7 @@ module.exports = function(app) {
       { where: { id: req.user.id } }
     )
       .then(() => {
-        // res.redirect("/members");
+        res.redirect("/members");
       })
       .catch(err => {
         if (err) {
